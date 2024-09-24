@@ -13,6 +13,7 @@
 		84A20BC32C9CB4DA00EB7333 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84A20BC22C9CB4DA00EB7333 /* Assets.xcassets */; };
 		84A20BC62C9CB4DA00EB7333 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84A20BC42C9CB4DA00EB7333 /* LaunchScreen.storyboard */; };
 		84A20BCE2C9CB80B00EB7333 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A20BCD2C9CB80B00EB7333 /* ButtonView.swift */; };
+		84F94BD12CA34D9E00000334 /* FlagViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F94BD02CA34D9E00000334 /* FlagViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		84A20BC52C9CB4DA00EB7333 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84A20BC72C9CB4DA00EB7333 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84A20BCD2C9CB80B00EB7333 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
+		84F94BD02CA34D9E00000334 /* FlagViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlagViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +42,7 @@
 		84A20BAD2C9CB4D600EB7333 = {
 			isa = PBXGroup;
 			children = (
+				84F94BD02CA34D9E00000334 /* FlagViewModel.swift */,
 				84A20BB82C9CB4D600EB7333 /* GuessTheFlag */,
 				84A20BB72C9CB4D600EB7333 /* Products */,
 			);
@@ -137,6 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84F94BD12CA34D9E00000334 /* FlagViewModel.swift in Sources */,
 				84A20BBE2C9CB4D600EB7333 /* ViewController.swift in Sources */,
 				84A20BBA2C9CB4D600EB7333 /* AppDelegate.swift in Sources */,
 				84A20BCE2C9CB80B00EB7333 /* ButtonView.swift in Sources */,
