@@ -10,7 +10,7 @@ import UIKit
 class ViewController: UIViewController {
     
     let viewModel = FlagViewModel()
-    let button = ButtonView()
+    let buttonView = ButtonView()
     var answerAlert = UIAlertController()
     var finalAlert = UIAlertController()
     
@@ -23,30 +23,30 @@ class ViewController: UIViewController {
     
     func setupView() {
         view.backgroundColor = .white
-        button.translatesAutoresizingMaskIntoConstraints = false
+        buttonView.translatesAutoresizingMaskIntoConstraints = false
         
-        view.addSubview(button)
+        view.addSubview(buttonView)
         
         NSLayoutConstraint.activate([
-            button.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
-            button.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 5),
-            button.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -5),
-            button.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            buttonView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
+            buttonView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 5),
+            buttonView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -5),
+            buttonView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
     }
     
     func setupButtonTarget() {
-        button.firstButton.addTarget(self, action: #selector(flagSelected), for: .touchUpInside)
-        button.secondButton.addTarget(self, action: #selector(flagSelected), for: .touchUpInside)
-        button.thirdButton.addTarget(self, action: #selector(flagSelected), for: .touchUpInside)
+        buttonView.firstButton.addTarget(self, action: #selector(flagSelected), for: .touchUpInside)
+        buttonView.secondButton.addTarget(self, action: #selector(flagSelected), for: .touchUpInside)
+        buttonView.thirdButton.addTarget(self, action: #selector(flagSelected), for: .touchUpInside)
         
         askQuestion()
     }
     
     func setupButtonImage(){
-        button.firstButton.setImage(UIImage(named: viewModel.countries[0]), for: .normal)
-        button.secondButton.setImage(UIImage(named: viewModel.countries[1]), for: .normal)
-        button.thirdButton.setImage(UIImage(named: viewModel.countries[2]), for: .normal)
+        buttonView.firstButton.setImage(UIImage(named: viewModel.countries[0]), for: .normal)
+        buttonView.secondButton.setImage(UIImage(named: viewModel.countries[1]), for: .normal)
+        buttonView.thirdButton.setImage(UIImage(named: viewModel.countries[2]), for: .normal)
     }
     
     @objc func flagSelected(_ sender: UIButton) {
@@ -63,8 +63,13 @@ class ViewController: UIViewController {
             answerAlert.dismiss(animated: true) {
                 self.showFinalAlert()
             }
-            
         }
+        
+        navigationItem.rightBarButtonItem?.title = "Score"
+    }
+    
+    func setupRightButton() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Score", style: .plain, target: self, action: #selector(showScore))
     }
     
     func showFinalAlert() {
@@ -88,8 +93,16 @@ class ViewController: UIViewController {
     
     func askQuestion(action: UIAlertAction! = nil) {
         viewModel.setupQuestion()
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Score: \(viewModel.score)", style: .plain, target: nil, action: nil)
+        setupRightButton()
         setupButtonImage()
         title = viewModel.countries[viewModel.correctAnswer].uppercased()
+    }
+    
+    @objc func showScore() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "\(viewModel.score)", style: .plain, target: self, action: #selector(resetButton))
+    }
+    
+    @objc func resetButton() {
+        setupRightButton()
     }
 }
